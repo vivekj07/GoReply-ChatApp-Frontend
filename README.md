@@ -1,8 +1,4 @@
-# React + Vite
+## Visit My App
+Explore the GoReply chat application by clicking the link below:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<a href="https://go-reply-chat-app-frontend.vercel.app/" target="_blank" style="text-decoration: none;"> <img src="https://img.shields.io/badge/GoReply.com-Visit-green?style=for-the-badge" alt="GoReply.com"> </a>
