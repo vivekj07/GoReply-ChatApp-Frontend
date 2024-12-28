@@ -30,7 +30,7 @@ const Login = () => {
             reader.readAsDataURL(file);
 
             reader.onload = () => {
-                setAvatarSrc(reader.result); // Set the file's URL as the avatar source
+                setAvatarSrc(reader.result); 
             };
 
         }
@@ -92,9 +92,6 @@ const Login = () => {
             setIsLoading(false)
         }
     }
-
-    // const avatar = useFileHandler("single")
-
 
 
     return (
@@ -181,7 +178,7 @@ const Login = () => {
                                             margin: "1rem 0"
                                         }}
                                         disabled={isLoading}
-                                        onClick={(e) => setIslogin(false)}
+                                        onClick={() => setIslogin(false)}
 
                                     > Sign up
                                     </Button>
@@ -309,7 +306,7 @@ const Login = () => {
                                         }}
                                         disabled={isLoading}
 
-                                        onClick={(e) => setIslogin(true)}
+                                        onClick={() => setIslogin(true)}
 
                                     > Login
                                     </Button>

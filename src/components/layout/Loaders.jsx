@@ -21,7 +21,7 @@ export const LayoutLoader = () => (
                 display: { xs: "none", sm: "block" },
 
             }}>
-                <Skeleton height={"100vh"} variant="rectangular" />
+                <Skeleton height={"calc(100vh - 4rem)"} variant="rectangular" />
             </Grid>
 
             <Grid item xs={12} sm={8} md={6}
@@ -36,9 +36,7 @@ export const LayoutLoader = () => (
                     <Skeleton height={"10vh"} variant="rounded" />
                     <Skeleton height={"10vh"} variant="rounded" />
                     <Skeleton height={"10vh"} variant="rounded" />
-                    <Skeleton height={"10vh"} variant="rounded" />
-                    <Skeleton height={"10vh"} variant="rounded" />
-                    <Skeleton height={"10vh"} variant="rounded" />
+                    
 
                 </Stack>
 
@@ -53,7 +51,7 @@ export const LayoutLoader = () => (
 
                     }
                 }}>
-                <Skeleton height={"100vh"} variant="rectangular" />
+                <Skeleton height={"calc(100vh - 4rem)"} variant="rectangular" />
 
 
             </Grid>

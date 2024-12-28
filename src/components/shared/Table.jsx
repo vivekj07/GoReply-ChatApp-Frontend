@@ -11,7 +11,7 @@ const Table = ({ rows, columns, heading, rowHeight = 50 }) => {
             sx={{
                 height: "100vh",
                 backgroundColor: "white",
-                borderRadius: "1rem",
+                // borderRadius: "1rem",
                 overflow: "auto"
             }}>
             <Paper

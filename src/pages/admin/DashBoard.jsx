@@ -101,7 +101,7 @@ const DashBoard = () => {
 
     return (
         <Container component={"main"} sx={{
-            height: "100%",
+            height: "100vh",
             padding: "1rem",
             overflow: "auto",
 
@@ -120,14 +120,14 @@ const DashBoard = () => {
                         xs: "column",
                         lg: "row",
                     },
-                    width: "100%"
+                    width: "100%",
                 }}>
 
 
                 <Paper sx={{
                     padding: "1rem 2.5rem",
                     borderRadius: "1rem",
-                    width: "95%",
+                    width: "100%",
                     maxWidth: "45rem",
                     margin: "1rem"
                 }}>
@@ -140,8 +140,8 @@ const DashBoard = () => {
                                 backgroundColor={["lightgreen"]}
                             />
                     }
-                </Paper
-                >
+                </Paper>
+                
 
                 <Paper
                     elevation={3}

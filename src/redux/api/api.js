@@ -143,7 +143,7 @@ const api = createApi({
             }),
         }),
 
-        // Admin apis
+        // Admin APIs
 
         getIsAdmin: builder.query({
             query: () => ({

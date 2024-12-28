@@ -22,10 +22,10 @@ import {
 } from "@mui/icons-material";
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Logo from "../../../public/Logo.png";
 import { useCustomMutation } from '../../hooks/hooks';
 import { useAdminLogoutMutation } from '../../redux/api/api';
 import { setIsAdmin } from '../../redux/reducers/auth';
-import Logo from "../../../public/Logo.png"
 
 const LinkComponent = styled(Link)({
     textDecoration: "none",

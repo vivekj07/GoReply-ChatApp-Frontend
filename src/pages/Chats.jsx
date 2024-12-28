@@ -42,7 +42,7 @@ const Chats = ({ chatId, user }) => {
     const { data: MessageData, isLoading: isLoadingMessage, isError: isErrorMessage, error: errorMessage }
         = useGetMessagesQuery({ id: chatId, page })
 
-    const { data, isLoading, isError, error } = useGetChatDetailsQuery({ id: chatId })
+    const { data, isLoading, isError, error } = useGetChatDetailsQuery({ id: chatId ,skip:!chatId})
 
     const errors = [
         { isError, error },

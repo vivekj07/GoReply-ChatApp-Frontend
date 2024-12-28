@@ -25,7 +25,7 @@ const Login = () => {
             dispatch(setIsAdmin(IsAdmindata.isAdmin))
         }
         // console.log(IsAdmindata)
-    })
+    },[IsAdmindata])
 
     const loginHandler = async () => {
         await adminLogin("Logging In...", { secretKey: password })

@@ -1,10 +1,10 @@
+import { AudioFile, Image, UploadFile, VideoFile } from '@mui/icons-material'
 import { ListItemIcon, ListItemText, Menu, MenuItem, MenuList } from '@mui/material'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setIsFileMenu } from '../../redux/reducers/misc'
-import { AudioFile, Image, UploadFile, VideoFile } from '@mui/icons-material'
-import { useSendAttachmentsMutation } from '../../redux/api/api'
 import toast from 'react-hot-toast'
+import { useDispatch, useSelector } from 'react-redux'
+import { useSendAttachmentsMutation } from '../../redux/api/api'
+import { setIsFileMenu } from '../../redux/reducers/misc'
 
 const FileMenu = ({ anchorEl, chatId }) => {
     const { isFileMenu } = useSelector((state) => (state.misc))
@@ -32,14 +32,12 @@ const FileMenu = ({ anchorEl, chatId }) => {
                 formdata.append("files", file)
             })
 
-
-
             const res = await sendAttachments(formdata)
 
             if (res.data) {
                 toast.success("Sent Successfully", { id: toastId })
             } else {
-                toast.error(res.error?.data?.message || "Error in Sending Files", { id: toastId })
+                toast.error("Failed to send Files!", { id: toastId })
             }
         } catch (err) {
             console.log(err)
