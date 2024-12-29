@@ -1,4 +1,4 @@
-import { Drawer, Grid, Skeleton } from '@mui/material'
+import { Box, Drawer, Grid, Skeleton } from '@mui/material'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -8,7 +8,7 @@ import { getOrSavefromLocalStorage } from '../../features/features'
 import { useErrors, useSocketEvents } from '../../hooks/hooks'
 import { useMyChatsQuery } from '../../redux/api/api'
 import { incrementNotifications, newMessagesAlertCounter, resetNewMessagesAlertCounter } from '../../redux/reducers/chat'
-import { setDeleteChatMenuDetails, setIsDeleteChatMenu, setIsmobile } from '../../redux/reducers/misc'
+import { setDeleteChatMenuDetails, setIsDeleteChatMenu, setIsmobile, setIsProfile } from '../../redux/reducers/misc'
 import { getSocket } from '../../socket'
 import Title from '../shared/Title'
 import ChatList from '../specific/ChatList'
@@ -26,7 +26,7 @@ const AppLayout = () => (WrappedComponent) => {
 
         const [onlineUsers, setOnlineUsers] = useState([])
 
-        const { isMobile } = useSelector((state) => state.misc)
+        const { isMobile,isProfile } = useSelector((state) => state.misc)
         const { user } = useSelector((state) => state.auth)
         const { newMessagesAlert } = useSelector((state) => state.chat)
         const dispatch = useDispatch()
@@ -89,6 +89,10 @@ const AppLayout = () => (WrappedComponent) => {
             dispatch(setIsmobile(false))
         }
 
+        const profileCloseHandler=()=>{
+            dispatch(setIsProfile(false));
+        }
+
 
         return (
             <>
@@ -126,11 +130,11 @@ const AppLayout = () => (WrappedComponent) => {
                         />
                     </Grid>
 
-                    <Grid item md={3}
+                    <Grid item md={3}  padding={"1rem"}
                         height={"100%"}
                         sx={{
                             display: { xs: "none", md: "block" },
-                            padding: "2rem",
+                            
                             bgcolor: "rgba(0,0,0,0.85)",
                         }}>
                         <Profile user={user} />
@@ -155,6 +159,33 @@ const AppLayout = () => (WrappedComponent) => {
                             newMessagesAlert={newMessagesAlert}
                             onlineUsers={onlineUsers}
                         />
+                    }
+
+                </Drawer>
+
+                <Drawer open={isProfile} onClose={profileCloseHandler} anchor='right'
+                    sx={{
+                        '& .MuiDrawer-paper': {
+                            width: '80vw',
+                            maxWidth:'400px',
+                            // border: "1px solid black",
+                            borderRadius: "15px 0 0 15px"
+                        },
+                    }}
+                >
+                    {isLoading ? <Skeleton height={"100vh"} /> :
+                        <Box 
+                        height={"100%"}
+                        sx={{
+                            padding: {
+                                xs:"1rem",
+                                sm:"2rem"
+                            },
+                            bgcolor: "rgba(0,0,0,0.85)",
+                        }}>
+                        <Profile user={user} />
+
+                    </Box>
                     }
 
                 </Drawer>

@@ -1,4 +1,4 @@
-import { Add, Group, Home, Logout, Menu as MenuIcon, NotificationAdd, Search as SearchIcon } from '@mui/icons-material'
+import { Add, Group, Home, Logout, Menu as MenuIcon, NotificationAdd, PersonPinCircle, Search as SearchIcon } from '@mui/icons-material'
 import { AppBar, Avatar, Backdrop, Badge, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { lazy, Suspense, useEffect, useState } from 'react'
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { tomato } from '../../constants/colors'
 import { server } from '../../constants/config'
 import { userNotExist } from '../../redux/reducers/auth'
-import { setIsmobile, setIsSearch } from '../../redux/reducers/misc'
+import { setIsmobile, setIsProfile, setIsSearch } from '../../redux/reducers/misc'
 import { resetNotifications } from '../../redux/reducers/chat'
 import { getOrSavefromLocalStorage } from '../../features/features'
 import image from "../../../public/Logo.png"
@@ -19,7 +19,7 @@ const Notification = lazy(() => import('../dialogs/Notification'))
 const NewGroup = lazy(() => import('../dialogs/NewGroup'))
 
 const Header = () => {
-    const { isMobile, isSearch } = useSelector((state) => state.misc)
+    const { isMobile, isSearch,isProfile } = useSelector((state) => state.misc)
     const { notificationsCount } = useSelector((state) => state.chat)
     const dispatch = useDispatch()
 
@@ -36,6 +36,9 @@ const Header = () => {
 
     const handleMobile = () => {
         dispatch(setIsmobile(true))
+    }
+    const handleProfile=()=>{
+        dispatch(setIsProfile(true));
     }
     const gotoHome = () => {
         navigate("/")
@@ -78,12 +81,16 @@ const Header = () => {
         <>
             <Box sx={{
                 height: '4rem',
+                width:"100%",
+                overflowX:"hidden",
+                overflowY:"visible",
+                position:"relative"
                 // flexGrow: 1
             }}>
                 <AppBar
                     sx={{
                         backgroundColor: tomato,
-                        position: "relative"
+                        // position: "relative",
                     }}
                 >
                     <Toolbar>
@@ -139,6 +146,34 @@ const Header = () => {
                         <Box sx={{
                             flexGrow: 1
                         }}></Box>
+
+                        <Box 
+                            sx={{
+                                display: { xs: "flex", md: "none" },
+                                justifyContent:"center",
+                                alignItems:"center",
+                                position:"absolute",
+                                right:"-20px",
+                                bottom:"-20px",
+                                backgroundColor:tomato,
+                                borderRadius:"50%",
+                                border:"3px solid rgb(101, 237, 33)",
+                                height:"40px",
+                                width:"40px",
+                                // zIndex:9999
+                            }}
+                        >
+                            <IconButton onClick={handleProfile} 
+                            sx={{
+                                height:"15px",
+                                width:"15px",
+                                color:"white"
+                            }}
+                            >
+                                <PersonPinCircle />
+                            </IconButton>
+                        </Box>
+                        
 
                         <Box>
                             <IconBtn

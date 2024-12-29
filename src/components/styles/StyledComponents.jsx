@@ -42,8 +42,6 @@ export const CurveButton = styled("button")({
     backgroundColor: "black",
     color: "white",
     borderRadius: "1.5rem",
-
-
 })
 
 export const StyledStack = styled(Stack)({

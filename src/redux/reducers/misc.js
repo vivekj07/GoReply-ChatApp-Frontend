@@ -9,6 +9,8 @@ const initialState = {
         chatId: "",
         groupChat: false
     },
+    isProfile: false,
+
 }
 
 const misc = createSlice({
@@ -30,8 +32,11 @@ const misc = createSlice({
         setDeleteChatMenuDetails: (state, action) => {
             state.DeleteChatMenuDetails = action.payload
         },
+        setIsProfile:(state,action)=>{
+            state.isProfile=action.payload
+        }
     }
 })
 
 export default misc
-export const { setIsmobile, setIsSearch, setIsFileMenu, setIsDeleteChatMenu, setDeleteChatMenuDetails } = misc.actions
+export const { setIsmobile, setIsSearch, setIsFileMenu, setIsDeleteChatMenu, setDeleteChatMenuDetails,setIsProfile } = misc.actions

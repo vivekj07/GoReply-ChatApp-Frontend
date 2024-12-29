@@ -142,6 +142,14 @@ const api = createApi({
                 body: data
             }),
         }),
+        updateProfile:builder.mutation({
+            query:(data)=>({
+                url:`user/profile/update`,
+                credentials:"include",
+                method:"PUT",
+                body:data
+            })
+        }),
 
         // Admin APIs
 
@@ -216,6 +224,7 @@ export const {
     useRemoveMemberMutation,
     useDeleteChatMutation,
     useLeaveGroupMutation,
+    useUpdateProfileMutation,
 
     useGetIsAdminQuery,
     useDashboardStatsQuery,
